@@ -1,0 +1,151 @@
+    # on veut programme qui permet de jouer a 2 joueurs a puissance 4 ou conte l'ordinateur
+
+# faire une liste de liste(=grille) ou chaque liste est une ligne , le nb de listes = nb de colonnes
+# pour choisir colonne on choisit une position qui est position dans la liste -1
+# if position > 0 et position < len(liste -1) 
+# for chaque liste a partir de grille[-1] jusque grille[-n] if valeur a cet endroit != 0
+# alors fait rien 
+# elif == 0 alors 
+#   if rouge(nb itération pair) joue alors position == 1 
+#   elif jaune joue (nb itération impair) alors position == 2 
+#
+#
+# pour imprimer la grille:
+#i = 0
+# while i < len(grille -1)
+#print grille[i] \n
+
+
+#durée de la partie:
+# while res =! victoire 
+#
+#
+#
+
+# pour gagner
+# if grille[liste][n] and grille[liste+1][n] and grille[liste+2][n] and grille[liste+3][n] alors
+#   if nb tour % 2 != 0   res = victoire 1
+#   elif nb tours % 2 == 0 res = victoire 2
+# 
+#
+#
+#
+#
+
+
+
+
+
+
+
+
+            #on veut initialiser la grille avec params nb col et nb lignes donc on veut une liste
+            #de liste 
+
+
+def initialiserGrille(nr,nc):
+    g = []
+    ligne = []
+    case = 0
+
+
+    for i in range(nc):
+        ligne.append(case)
+    for i in range(nr):
+        g.append(ligne)
+    return g
+
+
+#print(initialiserGrille(6,7))
+
+
+
+
+
+
+
+            # on veut 2 fcts qui permettent de donner soit nb de ligne soit nb de colonnes d'une grilel g
+
+# fct 1 param 
+# nr = len(g)
+# 
+# nc = 0
+# if nr(g) > 0:
+#   nc = len(g[0])
+#
+#
+
+
+def nr(g):
+    nr = len(g)
+    return nr
+
+def nc(g):
+    nc = 0
+    if nr(g) > 0:
+        nc = len(g[0])
+    return nc
+
+
+#testg = initialiserGrille(6,7)
+
+#print(nr(testg))
+#print(nc(testg))
+
+
+
+
+
+            # o nveut fct qui remplace un valeur par un caract dans une grille
+
+# fct 2 params nr et nc
+# grille = []
+# liste = []
+# case = 0
+#
+#for i in range(nc):
+#   liste.append(case)
+#for i in range(nr):
+#   grille.append(ligne)
+#
+# for i in grille:
+#   for i in ligne:
+#       if i == 0:
+#           i = "-"
+#       elif i == 1:
+#           i = "x"
+#       elif i == 2:
+#           i = "o"
+
+
+
+
+
+def caractLigne(l):
+    compt = 0
+    while compt < len(l):
+        if l[compt] == 0:
+            print("-" ,end="     ")
+        elif l[compt] == 1:
+            print("X" ,end="     ")
+        elif l[compt] == 2:
+            print("O" ,end="     ")
+        compt += 1
+
+    print("\n")
+
+#testLigne([0,0,2,0,1,0])
+
+
+def caractGrille(g):
+    for l in g:
+        caractLigne(l)
+
+#caractGrille(initialiserGrille(6,7))
+
+
+
+        
+
+
+
