@@ -37,22 +37,18 @@
 
 
 
-
-
             #on veut initialiser la grille avec params nb col et nb lignes donc on veut une liste
             #de liste 
 
 
+
+# 
+#
+#
 def initialiserGrille(nr,nc):
-    g = []
-    ligne = []
-    case = 0
 
+    g = [[0]*nc for i in range(nr)]
 
-    for i in range(nc):
-        ligne.append(case)
-    for i in range(nr):
-        g.append(ligne)
     return g
 
 
@@ -142,6 +138,117 @@ def caractGrille(g):
         caractLigne(l)
 
 #caractGrille(initialiserGrille(6,7))
+
+        
+
+#g = initialiserGrille(6,7)
+#l1 = g[0]
+#print(l1)
+
+#l1[1] = 2
+#print(l1)
+
+#g[0] = l1
+
+#print(g[0])
+
+
+
+
+
+
+
+
+
+
+        # veut fct qui demande num de col , si colonne > 0 et < nc(g) alors check si pas remplie
+        # deja remplie de disque(1ere ligne avec val differente de 0)
+
+        
+# fct colValide(g)
+#   res = False
+# input numCol
+# if numCol > 0 et numCol < nc(g)
+#   alors temp = g[0]
+#   if temp[numCol] == 0
+#       res = True 
+# 
+
+
+def colValide(g,numCol):
+    res = False
+    numCol = int(numCol)
+
+    if numCol > 0 and numCol < nc(g):
+        temp = g[0]
+        if temp[numCol] == 0:
+            res = True
+    return res
+
+
+
+
+# veut fct qui demande d'entrer au joueur un numéro de colonne 
+def demandeCol():
+    numCol = input("entrer une colonne valide : ")
+
+    return numCol
+
+
+
+
+
+# veut fct qui regarde chaque ligne de cette colonne pour savoir sur laquelle tombe le disque
+
+
+# on regarde derniere liste de la liste 
+# on regarde si valeur a cette colonne est 0 
+# si == 0 alors retourne le numéro de cette liste
+# si != 0 on passe a ligne suivante
+#
+
+
+def numLigne(g, numCol):
+    result = -1
+
+    for i in range(-1,-nr(g),-1):
+        if g[i][numCol] == 0:
+  
+            return result
+        
+        result = result - 1
+    return result
+
+g = initialiserGrille(6,7)
+g[-1][2] = 1
+g[-2][2] = 1
+
+print(numLigne(g,2))
+
+
+
+
+
+# veut modifier la grille en mettant valeur disque qu'on vient de jouer
+
+
+# on regarde la liste et choisit la colonne que le joueur p a choisit 
+# on change la valuer aux coordonnée g[numLigne][numCol] en 1 si p1 et 2 si p2 
+#
+
+
+def coupJoue(g,numCol,p):
+
+    if p == "p1":
+        g[numLigne(g,numCol)][numCol] = 2
+
+    elif p == "p2":
+        g[numLigne(g,numCol)][numCol] = 2
+
+
+    return g
+
+
 
 
 
